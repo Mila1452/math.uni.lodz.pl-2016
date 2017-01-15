@@ -1,0 +1,29 @@
+#
+# Plik wejsciowy dla PICT.
+# Homework - lesson 3 
+#
+
+Klient:		Gosc, Zarejestrowany, Super-klient
+Koszt: 			150, 300, 25, 50
+Znizka:     0%, 1%, 5%, 7%, 10%, 13%, 15%, 20%
+Darmowy_transport:	TAK, NIE	
+
+IF [Klient]="Gosc" AND [Koszt] < 300 THEN [Darmowy_transport] = "NIE";
+IF [Klient]="Gosc" AND [Koszt] >= 300 THEN [Darmowy_transport] = "TAK"; 
+IF [Klient]="Gosc" AND [Koszt] >= 150 THEN [Znizka] = "5%";
+IF [Klient]="Gosc" AND [Koszt] < 50 THEN [Znizka] = "0%";
+IF [Klient]="Gosc" AND [Koszt] >= 50 AND [Koszt] < 150 THEN [Znizka] = "1%";	
+IF [Klient]= "Zarejestrowany" AND [Koszt] >= 300 THEN [Znizka] = "13%";
+IF [Klient]= "Zarejestrowany" AND [Koszt] < 150 THEN [Znizka] = "5%";
+IF [Klient]= "Zarejestrowany" AND [Koszt] >= 150 AND [Koszt]<300 THEN [Znizka] = "7%";
+IF [Klient]= "Zarejestrowany" AND [Koszt] < 150 THEN [Darmowy_transport] = "NIE";
+IF [Klient]= "Zarejestrowany" AND [Koszt] >= 150 THEN [Darmowy_transport] = "TAK";
+IF [Klient]= "Super-klient" AND [Koszt] >= 300 THEN [Znizka] = "20%";
+IF [Klient]= "Super-klient" AND [Koszt] < 150 THEN [Znizka] = "10%";
+IF [Klient]= "Super-klient" AND [Koszt] >= 150 AND [Koszt]<300 THEN [Znizka] = "15%";
+IF [Klient]= "Super-klient" THEN [Darmowy_transport]="TAK";
+
+
+
+
+
